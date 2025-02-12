@@ -1,0 +1,50 @@
+.container {
+    max-width: 650px;
+    width: 100%;
+    font-family: 'Montserrat';
+}
+
+.wrapper {
+    border-bottom: 2px solid #c7c7c7;
+    overflow: hidden;
+}
+
+.wrapper .question-container {
+    width: 100%;
+    text-align: left;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.question-content{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.wrapper .arrow {
+    font-size: 2rem;
+    transition: .5s ease-in-out;
+}
+
+.arrow.active {
+    rotate: 180deg;
+}
+
+.wrapper .answer-container {
+    padding: 0 1rem;
+    transition: height .7s ease-in-out;
+}
+
+.wrapper .answer-content {
+    padding: 1rem 0;
+    font-size: 20px;
+    font-size: 14px;
+    font-weight: normal;
+}

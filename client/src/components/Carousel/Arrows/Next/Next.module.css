@@ -1,0 +1,16 @@
+.wrapper{
+    display: block;
+    position: absolute;
+    right: -155px;
+    top: 50%;
+    transform: translate(0, -50%);
+    
+    cursor: pointer;
+}
+
+.wrapper svg{
+    color: #c4c4c4;
+
+    width: 30px;
+    height: 170px;
+}

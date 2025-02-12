@@ -1,0 +1,17 @@
+.wrapper{
+    font-family: 'Montserrat';
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text{
+    margin-top: 141px;
+    margin-bottom: 48px;
+    width: 980px;
+    text-align: center;
+}

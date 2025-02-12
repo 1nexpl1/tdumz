@@ -1,0 +1,50 @@
+.email{
+    font-family: 'Montserrat';
+    font-size: 24px;
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 19px;
+}
+
+.wrapper{
+    background-color: #e4e4e4;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.insideWrapper{
+    width: 677px;
+}
+
+.title{
+    font-family: 'Montserrat';
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 21px;
+}
+
+.subTitle{
+    font-size: 15px;
+    font-family: 'Montserrat';
+    text-align: center;
+}
+
+.phoneWrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 23px;
+}
+
+.phone{
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}

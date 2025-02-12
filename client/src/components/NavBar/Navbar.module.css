@@ -1,0 +1,110 @@
+.wrapper{
+    background: rgb(50,50,50);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat';
+}
+
+.upNav{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 30px; 
+    grid-template-areas: 
+      ". . ."; 
+    justify-items: center; 
+    width: 980px;    
+    margin-top: 16px;
+}
+.leftBlockUpNav, .rightBlockUpNav, .centerBlockUpNav{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.leftBlockUpNav{
+    align-items: start;
+}
+
+.rightBlockUpNav{
+    align-items: end;
+}
+
+.centerBlockUpNav{
+    align-items: center;
+}
+.leftBlockNumber,
+.rightBlockPhone{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.leftBlockDescription,
+.rightBlockDescription,
+.centerBlockAdress{
+    font-size: 12px;
+}
+
+.leftBlockMail,
+.rightBlockMail{
+    font-size: 14px;
+}
+
+.centerBlockLogo{
+    width: 170px;
+    height: 111px;
+}
+
+.leftBlockNumberWrapper,
+.rightBlockPhoneWrapper{
+    margin-top: 46px;
+    margin-bottom: 4px;
+}
+
+.leftBlockDescriptionWrapper,
+.rightBlockDescriptionWrapper{
+    margin-bottom: 15px;
+}
+
+.centerBlockLogoWrapper{
+    margin-bottom: 12px;
+}
+
+.centerBlockAdressWrapper{
+    margin-bottom: 43px;
+}
+
+.linksWrapper{
+    width: 980px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    margin-bottom: 24px;
+}
+
+.link{
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.link:hover{
+    padding-bottom: 8px;
+    border-bottom: 2px solid #fff;
+}
+
+.dropDownWrapper{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

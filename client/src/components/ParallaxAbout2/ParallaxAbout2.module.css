@@ -1,0 +1,47 @@
+
+
+.wrapperText{
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 640px;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 35px;
+}
+
+
+.button{
+    width: 190px;
+    height: 45px;
+    background-color: #fff;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    color: #000;
+    position: absolute;
+    top: 0;
+    left: calc(50%);
+    border-radius: 5px;
+    transform: rotate(-90deg);
+    border: none;
+    outline: 0px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.button:hover{
+    background-color: blue;
+    color: #fff;
+}

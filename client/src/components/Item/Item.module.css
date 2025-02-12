@@ -1,0 +1,20 @@
+.title{
+    font-size: 14px;
+    font-family: 'Montserrat';
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image{
+    width: 306px;
+    height: 306px;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 330px;
+    height: 330px;
+}
