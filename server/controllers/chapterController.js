@@ -1,4 +1,4 @@
-const {Chapter} = require('../models/models')
+import { Chapter } from '../models/models.js'
 
 class chapterController {
     async getAll(req, res) {
@@ -31,4 +31,7 @@ class chapterController {
     }
 }
 
-module.exports = new chapterController()
+export const getAll = new chapterController().getAll;
+export const create = new chapterController().create;
+export const deleteOne = new chapterController().deleteOne;
+export const getOne = new chapterController().getOne;

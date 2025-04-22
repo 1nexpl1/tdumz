@@ -21,3 +21,25 @@
     transform: translate(-50%, 0);
 
 }
+
+@media (max-width: 1240px) {
+    .logo{
+        top: 100px;
+    }
+
+    .text{
+        top: 250px;
+    }
+}
+
+@media (max-width: 1070px) {
+    .text{
+        font-size: 18px;
+        width: 50%;
+    }
+    
+}
+
+@media (max-width: 860px) {
+    
+}

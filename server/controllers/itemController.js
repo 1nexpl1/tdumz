@@ -1,8 +1,6 @@
-const { Item, Descrption, Image } = require('../models/models')
-const uuid = require('uuid')
-const path = require('path');
-const { deleteOne } = require('./chapterController');
-const { text } = require('express');
+import { Item, Descrption, Image } from '../models/models.js';
+import { v4 } from 'uuid';
+import { resolve } from 'path';
 class itemController {
     async getAll(req, res) {
         const items = await Item.findAndCountAll()
@@ -27,14 +25,24 @@ class itemController {
         }
 
         if (image) {
-            for(let file of image){
-                let ImgPath = uuid.v4() + ".jpg"
-                file.mv(path.resolve(__dirname, '..', 'static', ImgPath))
+            if (!Array.isArray(image)) {
+                let ImgPath = v4() + ".jpg"
+                image.mv(resolve(__dirname, '..', 'static', ImgPath))
                 Image.create({
                     path: ImgPath,
                     itemId: item.id
                 })
+            } else {
+                for (let file of image) {
+                    let ImgPath = v4() + ".jpg"
+                    file.mv(resolve(__dirname, '..', 'static', ImgPath))
+                    Image.create({
+                        path: ImgPath,
+                        itemId: item.id
+                    })
+                }
             }
+            
             
         }
 
@@ -46,23 +54,26 @@ class itemController {
         const item = await Item.destroy(
             {
                 where: { id },
-                include: [{model: Image, as: 'images'}, {model: Descrption, as: 'description'}]
+                include: [{ model: Image, as: 'images' }, { model: Descrption, as: 'description' }]
             }
         )
         return res.json(item)
     }
 
-    async getOne(req,res){
-        const {id} = req.params
+    async getOne(req, res) {
+        const { id } = req.params
 
         const item = await Item.findOne(
             {
-                where: {id},
-                include: [{model: Image, as: 'images'}, {model: Descrption, as: 'description'}]
+                where: { id },
+                include: [{ model: Image, as: 'images' }, { model: Descrption, as: 'description' }]
             }
         )
         return res.json(item)
     }
 }
 
-module.exports = new itemController()
+export const getAll = new itemController().getAll;
+export const create = new itemController().create;
+export const deleteOne = new itemController().deleteOne;
+export const getOne = new itemController().getOne;

@@ -4,6 +4,7 @@ import { RxCross1 } from "react-icons/rx";
 
 const CardButton = () => {
     const [isOpen, setIsOpen] = useState(false)
+    
     return (
         <div className={s.allWrapper}>
             <button className={s.orderButton} onClick={() => setIsOpen(!isOpen)}>

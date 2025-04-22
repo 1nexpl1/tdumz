@@ -111,7 +111,7 @@ const SignInPage = (props) => {
               variant="h4"
               sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', textAligh: 'left' }}
             >
-              Sign in
+              Вход
             </Typography>
             <Box
               component="form"
@@ -142,7 +142,7 @@ const SignInPage = (props) => {
                 />
               </FormControl>
               <FormControl>
-                <FormLabel htmlFor="password">Password</FormLabel>
+                <FormLabel htmlFor="password">Пароль</FormLabel>
                 <TextField
                   error={passwordError}
                   helperText={passwordErrorMessage}

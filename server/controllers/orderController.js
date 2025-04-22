@@ -1,27 +1,27 @@
-const {Order} = require('../models/models')
+import { Order } from '../models/models.js';  // Теперь не нужно использовать .default
 
-class orderController {
+class OrderController {
     async getAll(req, res) {
-        const orders = await Order.findAll()
-        return res.json(orders)
+        const orders = await Order.findAll();
+        return res.json(orders);
     }
 
-    async create(req, res){
-        const {mail, type} = req.body
-        const order = await Order.create({mail, type})
+    async create(req, res) {
+        const { mail, type } = req.body;
+        const order = await Order.create({ mail, type });
 
-        return res.json(order)
+        return res.json(order);
     }
 
-    async deleteOne(req, res){
-        const {id} = req.params
-        const order = await Order.destroy(
-            {
-                where: {id}
-            }
-        )
-        return res.json(order)
+    async deleteOne(req, res) {
+        const { id } = req.params;
+        const order = await Order.destroy({
+            where: { id },
+        });
+        return res.json(order);
     }
 }
 
-module.exports = new orderController()
+export const getAll = new OrderController().getAll;
+export const create = new OrderController().create;
+export const deleteOne = new OrderController().deleteOne;

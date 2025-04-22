@@ -1,4 +1,4 @@
-const { Descrption } = require('../models/models')
+import { Descrption } from '../models/models.js'
 
 class descriptionController {
     async getAll(req, res) {
@@ -36,4 +36,7 @@ class descriptionController {
     }
 }
 
-module.exports = new descriptionController()
+export const getAll = new descriptionController().getAll;
+export const create = new descriptionController().create;
+export const deleteOne = new descriptionController().deleteOne;
+export const changeOne = new descriptionController().changeOne;

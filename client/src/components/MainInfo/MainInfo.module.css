@@ -63,3 +63,54 @@
     text-align: center;
     width: 80%;
 }
+
+@media (max-width: 1620px) {
+    .wrapperInfo{
+        height: 500px;
+    }
+}
+
+@media (max-width: 1180px) {
+    .wrapperInfo{
+        height: 600px;
+    }
+    .text{
+        width: 70%;
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 1480px) {
+    .wrapper{
+        top: -300px;
+    }
+}
+
+@media (max-width: 1120px) {
+    .wrapper{
+        top: -200px;
+    }
+}
+@media (max-width: 1370px) {
+    .wrapperInfo{
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .cardsWrapper{
+        position: relative;
+        flex-direction: column;
+        bottom: auto;
+        left: auto;
+        transform: none;
+    }
+
+}
+
+@media (max-width: 470px) {
+    .text{
+        font-size: 22px;
+    }
+}

@@ -4,6 +4,10 @@ import { columns, rows } from '../iternals/data/gridData';
 import { Box, Button, InputLabel, MenuItem, Modal, Select, TextField, Typography } from '@mui/material';
 import { createItem, deleteOneItem, fetchItems, fetchOneType } from '../../../http/ItemAPI';
 import { data } from 'react-router-dom';
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
+import ModalForms from './ModalForms';
+
 
 export default function CustomizedDataGrid({ items, types }) {
 
@@ -27,53 +31,71 @@ export default function CustomizedDataGrid({ items, types }) {
 
   const [title, setTitle] = React.useState('')
   const [open, setOpen] = React.useState(false);
+  const [openInfo, setOpenInfo] = React.useState(false);
   const [info, setInfo] = React.useState([])
   const [typesData, setTypesData] = React.useState([])
   const [chapterId, setChapterId] = React.useState(0)
   const [photo, setPhoto] = React.useState([])
   const [selectId, setSelectId] = React.useState([])
   const [flagSelectId, setFlagSelectId] = React.useState([])
+  const [currentInfoEl, setCurrentInfoEl] = React.useState([])
+
+
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleOpenInfo = () => setOpenInfo(true);
+
   const addInfo = () => {
-    setInfo([...info, { title: '', text: '', number: Date.now() }])
+    let num = Date.now()
+    setInfo([...info, { title: '', text: '', number: num }])
+    setCurrentInfoEl({ title: '', text: '', number: num })
+    handleOpenInfo()
   }
   const removeInfo = (number) => {
     setInfo(info.filter(i => i.number !== number))
+    setOpenInfo(false)
   }
   const changeInfo = (key, value, number) => {
     setInfo(info.map(i => i.number === number ? { ...i, [key]: value } : i))
+    setCurrentInfoEl({ ...currentInfoEl, [key]: value })
+
   }
 
+
   const addPhoto = () => {
-    setPhoto([...photo, { value: '', number: Date.now() }])
+    setPhoto([...photo, { value: '', preview: '', number: Date.now() }])
   }
   const removePhoto = (number) => {
     setPhoto(photo.filter(i => i.number !== number))
   }
-  const changePhoto = (key, value, number) => {
-    setPhoto(photo.map(i => i.number === number ? { ...i, [key]: value } : i))
-  }
-
-  function stringify(obj) {
-    const replacer = [];
-    for (const key in obj) {
-      replacer.push(key);
-    }
-    return JSON.stringify(obj, replacer);
+  const changePhoto = (value, preview, number) => {
+    setPhoto(photo.map(i => i.number === number ? { ...i, 'value': value, 'preview': preview } : i))
   }
 
   const AddItem = () => {
-    let formData = new FormData()
-    formData.append('title', title)
-    formData.append('chapterId', chapterId)
-    formData.append('description', JSON.stringify(info))
-    for (let file of photo) {
-      formData.append('image', file.value);
+    if (!title || info.length == 0 || photo.length == 0 || !chapterId) {
+      alert('Не все поля заполненны')
+    } else {
+
+      let formData = new FormData()
+      formData.append('title', title)
+      formData.append('chapterId', chapterId)
+      formData.append('description', JSON.stringify(info))
+      for (let file of photo) {
+        formData.append('image', file.value);
+        console.log();
+
+      }
+      createItem(formData).then(data => {
+        handleClose()
+        setTitle('')
+        setChapterId(0)
+        setPhoto([])
+        setInfo([])
+      })
     }
-    createItem(formData).then(data => handleClose())
   }
 
   const selectRow = (newRowSelectionModel) => {
@@ -82,7 +104,7 @@ export default function CustomizedDataGrid({ items, types }) {
   }
 
   const DeleteItem = () => {
-    deleteOneItem(selectId[0]).then(data => { setFlagSelectId([]) })
+    selectId.length !== 0 ? deleteOneItem(selectId[0]).then(data => { setFlagSelectId([]) }) : alert('Не выбраны элементы для удаления!')
   }
 
   return (
@@ -144,111 +166,15 @@ export default function CustomizedDataGrid({ items, types }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Добавление товара
-          </Typography>
-          <InputLabel id="demo-select-small-label">Раздел</InputLabel>
-          <Select
-            labelId="demo-select-small-label"
-            id="demo-select-small"
-            value={chapterId}
-            label="Age"
-            onChange={(e) => setChapterId(e.target.value)}
-          >
-            {typesData.map(el =>
-              <MenuItem value={el.id}>{el.name}</MenuItem>
-            )}
-          </Select>
-          <TextField
-            sx={{ width: '100%', marginTop: '20px' }}
-            label="Название"
-            variant="standard"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <Button onClick={addInfo} sx={{ marginRight: '20px', marginTop: '10px' }} variant="contained" color="success">
-            Добавить раздел описания
-          </Button>
-          {info.map(i =>
-            <>
-              <TextField
-                sx={{ width: '100%', marginTop: '30px' }}
-                value={i.title}
-                onChange={(e) => changeInfo('title', e.target.value, i.number)}
-                label="Введите название свойства"
-                variant="standard"
-              />
-              <TextField
-                sx={{ width: '100%', marginTop: '20px' }}
-                value={i.description}
-                onChange={(e) => changeInfo('text', e.target.value, i.number)}
-                label="Введите описание свойства"
-                variant="standard"
-              />
-              <Button
-                sx={{ marginRight: '20px', marginTop: '10px' }}
-                onClick={() => removeInfo(i.number)}
-                variant="outlined"
-                color="error"
-              >
-                Удалить
-              </Button>
-            </>
-          )}
-
-          <Box>
-
-            <Button onClick={addPhoto} sx={{ marginRight: '20px', marginTop: '10px' }} variant="contained" color="success">
-              Добавить фото
-            </Button>
-
-            {photo.map(i =>
-              <>
-                <TextField
-                  sx={{ display: 'none' }}
-                  value={i.title}
-                  onChange={(e) => changePhoto('value', e.target.files[0], i.number)}
-                  variant="standard"
-                  type='file'
-                  multiple
-                >
-                  <Button onClick={addPhoto} sx={{ display: 'block' }} variant="contained" color="success">
-                    Добавить фото
-                  </Button>
-                </TextField>
-                <input
-                  accept="image/*"
-                  style={{ display: 'none' }}
-                  id="raised-button-file"
-                  multiple
-                  type="file"
-                />
-                <label htmlFor="raised-button-file">
-                  <Button variant="raised" component="span">
-                    Upload
-                  </Button>
-                </label>
-                <Button
-                  sx={{ marginTop: '20px' }}
-                  onClick={() => removePhoto(i.number)}
-                  variant="outlined"
-                  color="error"
-                >
-                  Удалить
-                </Button>
-              </>
-            )}
-          </Box>
-          <Button sx={{ marginRight: '20px', marginTop: '10px' }} variant="contained" color="success" onClick={AddItem}>
-            Добавить
-          </Button>
-          <Button sx={{ marginRight: '20px', marginTop: '10px' }} onClick={handleClose} variant="outlined" color="error">
-            Отмена
-          </Button>
-
-        </Box>
+        <ModalForms chapterId={chapterId} setChapterId={setChapterId} typesData={typesData} title={title} setTitle={setTitle} addInfo={addInfo} info={info} changeInfo={changeInfo} removeInfo={removeInfo} addPhoto={addPhoto} photo={photo} changePhoto={changePhoto} removePhoto={removePhoto} AddItem={AddItem} handleClose={handleClose} openInfo={openInfo} setOpenInfo={setOpenInfo} currentInfoEl={currentInfoEl} setCurrentInfoEl={setCurrentInfoEl} />
       </Modal>
+      {/* <Modal
+        open={openInfo}
+        onClose={handleCloseInfo}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
+          123
+      </Modal> */}
     </Box>
   );
 }

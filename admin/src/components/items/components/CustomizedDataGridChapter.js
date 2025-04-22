@@ -42,7 +42,8 @@ export default function CustomizedDataGridChapter({ types }) {
     }
 
     const DeleteItem = () => {
-        deleteOneType(selectId[0]).then(data => { setFlagSelectId([]) })
+        selectId.length !== 0 ? deleteOneType(selectId[0]).then(data => { setFlagSelectId([]) }) : alert('Не выбраны элементы для удаления!') 
+        
     }
 
     return (

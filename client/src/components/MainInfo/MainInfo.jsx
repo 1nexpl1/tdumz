@@ -10,7 +10,7 @@ const MainInfo = () => {
         <img src={up} alt="" />
         <div className={s.wrapperInfo}>
             <div className={s.text}>ТД «УМЗ» - компания, осуществляющая  поставки оборудования для добывающей промышленности.</div>
-        </div>
+        
         <div className={s.cardsWrapper}>    
         <div className={s.card}>
             <div className={s.title}>ПРОИЗВОДСТВО</div>
@@ -23,6 +23,7 @@ const MainInfo = () => {
         <div className={s.card}>
             <div className={s.title}>СЕРВИС</div>
             <div className={s.subTitle}>капитальный ремонт, модернизация оборудования и техническое обслуживание предлагаемого оборудования</div>
+        </div>
         </div>
         </div>
         <img src={down} alt="" className={s.arrowDown}/>

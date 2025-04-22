@@ -1,10 +1,10 @@
-const Router = require('express')
+import Router from 'express'
 const router = new Router()
-const chapterController = require('../controllers/chapterController')
+import { getAll, create, deleteOne, getOne } from '../controllers/chapterController.js'
 
-router.get('/', chapterController.getAll)
-router.post('/', chapterController.create)
-router.delete('/:id', chapterController.deleteOne)
-router.get('/:id', chapterController.getOne)
+router.get('/', getAll)
+router.post('/', create)
+router.delete('/:id', deleteOne)
+router.get('/:id', getOne)
 
-module.exports = router
+export default router

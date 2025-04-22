@@ -7,33 +7,17 @@ import ph2 from '../../images/card2.png'
 import ph3 from '../../images/card3.png'
 
 
-const CardGallery = () => {
-    const images = [
-        {
-            original: "https://placehold.co/550x550",
-            thumbnail: "https://placehold.co/92x92",
-            originalHeight: '550px',
-            originalWidth: '550px',
-            thumbnailHeight: '92px',
-            thumbnailWidth: '92px',
-        },
-        {
-            original: "https://placehold.co/550x550",
-            thumbnail: "https://placehold.co/92x92",
-            originalHeight: '550px',
-            originalWidth: '550px',
-            thumbnailHeight: '92px',
-            thumbnailWidth: '92px',
-        },
-        {
-            original: "https://placehold.co/550x550",
-            thumbnail: "https://placehold.co/92x92",
-            originalHeight: '550px',
-            originalWidth: '550px',
-            thumbnailHeight: '92px',
-            thumbnailWidth: '92px',
-        },
-    ];
+const CardGallery = ({ imag }) => {
+
+    const images = imag.map(el => ({
+        original: 'http://localhost:8000/' + el.path,
+        thumbnail: 'http://localhost:8000/' + el.path,
+        originalHeight: '550px',
+        originalWidth: '550px',
+        thumbnailHeight: '92px',
+        thumbnailWidth: '92px',
+    }))
+    
     return (
         <div className={s.wrapper}>
             <ImageGallery items={images} thumbnailPosition={'bottom'} showPlayButton={false} showFullscreenButton={false} showNav={false} />

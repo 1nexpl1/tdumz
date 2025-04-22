@@ -1,0 +1,12 @@
+.photoAddButton{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(101, 101, 101, 0.8);
+    border: 1px dashed #a2a1a1;
+    margin-top: 10px;
+}
+.photo{
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+}

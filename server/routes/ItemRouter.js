@@ -1,10 +1,10 @@
-const Router = require('express')
+import Router from 'express'
 const router = new Router()
-const itemController = require('../controllers/itemController')
+import { getAll, create, getOne, deleteOne } from '../controllers/itemController.js'
 
-router.get('/', itemController.getAll)
-router.post('/', itemController.create)
-router.get('/:id', itemController.getOne)
-router.delete('/:id', itemController.deleteOne)
+router.get('/', getAll)
+router.post('/', create)
+router.get('/:id', getOne)
+router.delete('/:id', deleteOne)
 
-module.exports = router
+export default router
