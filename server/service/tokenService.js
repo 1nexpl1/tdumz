@@ -52,5 +52,4 @@ class TokenService {
     }
 }
 
-// Экспортируем экземпляр сервиса
 export default new TokenService();
