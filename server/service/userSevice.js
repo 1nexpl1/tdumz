@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 import { User } from '../models/models.js';
 import tokenService from './tokenService.js';
 import UserDto from '../dtos/userDto.js';
-import { BadRequest, UnauthorizedError } from '../exceptions/apiError.js';
+import ApiError from '../exceptions/apiError.js';
 import { log } from 'console';
 
 
@@ -54,12 +54,12 @@ class userService {
 
     async refresh(refreshToken) {
         if (!refreshToken) {
-            throw UnauthorizedError();
+            throw ApiError.UnauthorizedError();
         }
         const userData = validateRefreshToken(refreshToken);
         const tokenFromDb = await findToken(refreshToken);
         if (!userData || !tokenFromDb) {
-            throw UnauthorizedError();
+            throw ApiError.UnauthorizedError();
         }
         const user = await User.findByPk(userData.id);
         const userDto = new UserDto(user);

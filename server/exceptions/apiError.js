@@ -1,4 +1,4 @@
-class ApiError extends Error {
+export default class ApiError extends Error {
     status;
     errors;
 
@@ -17,6 +17,3 @@ class ApiError extends Error {
     }
 }
 
-const { UnauthorizedError, BadRequest } = ApiError;
-
-export { UnauthorizedError, BadRequest };
