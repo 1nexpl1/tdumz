@@ -9,6 +9,23 @@ import path from 'path';
 import { fileURLToPath } from 'url';  // Импортируем fileURLToPath для преобразования URL в путь
 import cookieParser from 'cookie-parser';
 
+const allowedOrigins = [
+    'https://tdumz.com',
+    'https://admin.tdumz.com'
+  ];
+  
+  const corsOptions = {
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+};
+
+
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
@@ -19,13 +36,18 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(fileUpload({}));
-app.use('/api', cors(), router);
-app.use(errorHandler);
 
-app.use(cookieParser());
+app.use('/api', router);
+
+app.options('*', cors(corsOptions));
+
+
+app.use(errorHandler);
 
 const start = async () => {
     try {
