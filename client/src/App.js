@@ -14,6 +14,7 @@ function App() {
     fetchItems().then(data => setItems(data)).then(data => setLoad2(false))
     fetchTypes().then(data => setTypes(data)).then(data => setLoad(false))
   }, [])
+  
   return (
     <>
     {load && load2 ? (

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const $host = axios.create({
-    baseURL: 'https://api.tdumz.com/api'
+    baseURL: 'http://localhost:8000/api'
 })
 
 export {
