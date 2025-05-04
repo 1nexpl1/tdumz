@@ -10,8 +10,6 @@ import { fileURLToPath } from 'url';  // Импортируем fileURLToPath д
 import cookieParser from 'cookie-parser';
 
 const allowedOrigins = [
-    'http://localhost:3001',
-    'http://localhost:3002',
     'https://tdumz.com',
     'https://admin.tdumz.com'
   ];
