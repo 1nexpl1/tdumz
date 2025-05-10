@@ -9,6 +9,8 @@ import ConsultAbout from '../components/ConsultAbout/ConsultAbout'
 import AboutContacts from '../components/AboutContacts/AboutContacts'
 import Footer from '../components/Footer/Footer'
 
+import { Helmet } from 'react-helmet-async';
+
 
 
 const AboutPage = () => {
