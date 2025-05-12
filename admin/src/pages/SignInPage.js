@@ -73,9 +73,8 @@ const SignInPage = (props) => {
       event.preventDefault();
       if (!validateInputs()) return;
     
-      const data = new FormData(event.currentTarget);
-      const login = data.get('email');
-      const password = data.get('password');
+      const login = event.target.email.value;
+      const password = event.target.password.value;
     
       setIsSubmitting(true);
       try {
