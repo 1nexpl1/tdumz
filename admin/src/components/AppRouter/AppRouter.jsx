@@ -1,19 +1,27 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import SignInPage from '../../pages/SignInPage'
-import DashboardPage from '../../pages/DashboardPage'
-import Items from '../items/Items'
-import Client from '../client/client'
+import { Route, Routes, Navigate } from 'react-router-dom';
+import SignInPage from '../../pages/SignInPage';
+import DashboardPage from '../../pages/DashboardPage';
+import Items from '../items/Items';
+import Client from '../client/client';
 
-const AppRouter = () => {
+const AppRouter = ({ isAuth }) => {
   return (
-    <Routes> 
-        <Route path = 'signin' element={<SignInPage />}/>
-        <Route path = 'item' element={<Items />} />        
-        <Route path = 'client' element={<Client />} />
-        <Route path = '*' element={<DashboardPage />}/>
+    <Routes>
+      {isAuth ? (
+        <>
+          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="item" element={<Items />} />
+          <Route path="client" element={<Client />} />
+          <Route path="*" element={<Navigate to="dashboard" />} />
+        </>
+      ) : (
+        <>
+          <Route path="signin" element={<SignInPage />} />
+          <Route path="*" element={<Navigate to="signin" />} />
+        </>
+      )}
     </Routes>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

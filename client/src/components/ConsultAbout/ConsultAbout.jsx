@@ -12,7 +12,7 @@ const ConsultAbout = () => {
                     <div className={s.phone}>+7 (922) 209-83-80</div>
                 </div>
                 <div className={s.subTitle}>отдел продаж ТД "УМЗ"</div>
-                <div className={s.email}>tdumz@bk.ru</div>
+                <div className={s.email}>sale@tdumz.com</div>
             </div>
         </div>
     )

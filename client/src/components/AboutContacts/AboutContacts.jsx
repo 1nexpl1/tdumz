@@ -20,7 +20,7 @@ const AboutContacts = () => {
                     </div>
                 </div>
                 <div className={s.number}>
-                +7 (922) 209-83-08
+                +7 (343) 383-28-16
                 </div>
                 <div className={s.subTitle}>
                 общий
@@ -33,12 +33,11 @@ const AboutContacts = () => {
                     <div className={s.contactWrapper1}>
                         <div className={s.number}>+7 (343) 382-35-89</div>
                         <div className={s.subTitle}>отдел продаж</div>
-                        <div className={s.mail}>E-mail: <span>tdumz@bk.ru</span></div>
+                        <div className={s.mail}>E-mail: <span>sale@tdumz.com</span></div>
                     </div>
                     <div className={s.contactWrapper2}>
                         <div className={s.number}>+7 (922) 209-83-80</div>
                         <div className={s.subTitle}>специалист отдела продаж</div>
-                        <div className={s.mail}>Email: <span>sale@tdumz.com</span></div>
                     </div>
                 </div>
             </div>

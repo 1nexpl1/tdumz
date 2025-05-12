@@ -12,6 +12,9 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import * as React from 'react';
 import AppTheme from '../components/AppTheme/AppTheme';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const Card = styled(MuiCard)(({ theme }) => ({
     display: 'flex',
@@ -61,18 +64,39 @@ const SignInPage = (props) => {
     const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
     const [passwordError, setPasswordError] = React.useState(false);
     const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
+
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+    const navigate = useNavigate();
+
   
-    const handleSubmit = (event) => {
-      if (emailError || passwordError) {
-        event.preventDefault();
-        return;
-      }
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      if (!validateInputs()) return;
+    
       const data = new FormData(event.currentTarget);
-      console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-      });
+      const login = data.get('email');
+      const password = data.get('password');
+    
+      setIsSubmitting(true);
+      try {
+        const response = await axios.post('https://api.tdumz.com/api/user/login', {
+          login,
+          password
+        }, { withCredentials: true });
+    
+        const accessToken = response.data.accessToken;
+        localStorage.setItem('token', accessToken);
+    
+        props.setIsAuth(true);
+    
+        navigate('/item'); // или /dashboard, если нужно
+      } catch (error) {
+        alert('Неверный логин или пароль');
+      } finally {
+        setIsSubmitting(false);
+      }
     };
+    
   
     const validateInputs = () => {
       const email = document.getElementById('email');
@@ -80,18 +104,14 @@ const SignInPage = (props) => {
   
       let isValid = true;
   
-      if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
-        setEmailError(true);
-        setEmailErrorMessage('Please enter a valid email address.');
-        isValid = false;
-      } else {
+      if (email.value) {
         setEmailError(false);
         setEmailErrorMessage('');
       }
   
-      if (!password.value || password.value.length < 6) {
+      if (!password.value || password.value.length < 3) {
         setPasswordError(true);
-        setPasswordErrorMessage('Password must be at least 6 characters long.');
+        setPasswordErrorMessage('Password must be at least 3 characters long.');
         isValid = false;
       } else {
         setPasswordError(false);
