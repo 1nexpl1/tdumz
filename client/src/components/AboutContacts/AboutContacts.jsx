@@ -31,7 +31,7 @@ const AboutContacts = () => {
                 <div className={s.line}/>
                 <div className={s.contactsWrapper}>
                     <div className={s.contactWrapper1}>
-                        <div className={s.number}>+7 (922) 105-05-85</div>
+                        <div className={s.number}>+7 (343) 382-35-89</div>
                         <div className={s.subTitle}>отдел продаж</div>
                         <div className={s.mail}>E-mail: <span>tdumz@bk.ru</span></div>
                     </div>

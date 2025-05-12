@@ -62,13 +62,13 @@ const Navbar = () => {
                     <div className={s.upNav}>
                         <div className={s.leftBlockUpNav}>
                             <div className={s.leftBlockNumberWrapper}>
-                                <span className={s.leftBlockNumber}>+7 (922) 209-83-08</span>
+                                <span className={s.leftBlockNumber}>+7 (343) 382-35-89</span>
                             </div>
                             <div className={s.leftBlockDescriptionWrapper}>
                                 <span className={s.leftBlockDescription}>общий</span>
                             </div>
                             <div className={s.leftBlockMailWrapper}>
-                                <span className={s.leftBlockMail}>info@tdumz@ru</span>
+                                <span className={s.leftBlockMail}>info@tdumz.ru</span>
                             </div>
                         </div>
                         <div className={s.centerBlockUpNav}>
@@ -81,13 +81,10 @@ const Navbar = () => {
                         </div>
                         <div className={s.rightBlockUpNav}>
                             <div className={s.rightBlockPhoneWrapper}>
-                                <span className={s.rightBlockPhone}>+7 (922) 209-83-80</span>
+                                <span className={s.rightBlockPhone}>+7 (343) 383-28-16</span>
                             </div>
                             <div className={s.rightBlockDescriptionWrapper}>
                                 <span className={s.rightBlockDescription}>отдел продаж</span>
-                            </div>
-                            <div className={s.rightBlockMailWrapper}>
-                                <span className={s.rightBlockMail}>tdumz@bk.ru</span>
                             </div>
                             <div className={s.rightBlockMailWrapper}>
                                 <span className={s.rightBlockMail}>sale@tdumz.com</span>

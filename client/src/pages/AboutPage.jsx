@@ -26,7 +26,8 @@ const AboutPage = () => {
             <meta property="og:type" content="website" />
             <meta property="og:url" content="https://tdumz.com/" />
             <meta property="og:image" content="https://tdumz.com/tdlogo.png" />
-    
+
+            <meta name="google" content="notranslate" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content="TDUMZ — Промышленные буровые установки" />
             <meta name="twitter:description" content="Надёжные буровые установки от ведущих производителей. TDUMZ — ваш поставщик техники." />
