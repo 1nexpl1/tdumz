@@ -37,16 +37,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); 
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(fileUpload({}));
 
+// ====== РОУТЕР ПОСЛЕ CORS ========
 app.use('/api', router);
 
-app.options('*', cors(corsOptions));
-
-
+// ====== ОБРАБОТЧИК ОШИБОК ========
 app.use(errorHandler);
 
 const start = async () => {
