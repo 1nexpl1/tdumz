@@ -93,28 +93,27 @@ const ModalForms = ({ chapterId, setChapterId, setCurrentInfoEl, typesData, curr
                 )}
 
             </table>
-            <Box sx =  {{display: 'flex', flexDirection: 'row', gap: '5px'}}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', gap: '5px' }}>
                 {photo.map(i =>
-                    <>
-                        {i.preview ?
-                            <>
-                                <img ref={ref} className='photo' src={i.preview} />
-                            </>
-                            :
-                            <TextField
-                                sx = {{marginTop: '10px', width: '100px'}}
-                                value={i.title}
+                    <div key={i.number}>
+                        {i.preview ? (
+                            <img className='photo' src={i.preview} />
+                        ) : (
+                            <input
+                                type="file"
+                                accept="image/*"
+                                style={{ marginTop: '10px' }}
                                 onChange={(e) => {
-                                    changePhoto(e.target.files[0], URL.createObjectURL(e.target.files[0]), i.number)
+                                    const file = e.target.files[0];
+                                    if (file) {
+                                        changePhoto(file, URL.createObjectURL(file), i.number);
+                                    }
                                 }}
-                                variant="standard"
-                                type='file'
-                                multiple
-                            >
-                            </TextField>
-                        }
-                    </>
+                            />
+                        )}
+                    </div>
                 )}
+
                 <button onClick={addPhoto} className='photoAddButton'>+</button>
             </Box>
             <Button sx={{ marginRight: '20px', marginTop: '10px' }} variant="contained" color="success" onClick={AddItem}>
