@@ -12,15 +12,19 @@ const Item = ({ item }) => {
   
   const currentUrl = window.location.href;
   useEffect(() => {
-    fetchOneItem(item.id).then(data => {
-      setName(data.title)
-      setImage('http://localhost:8000/' + data.images[0].path)
-      setLink(data.id)
-      
-    }
-    ).then(data => setLoad(false))
-    
+    fetchOneItem(item.id)
+      .then(data => {
+        setName(data.title)
+        if (data.images && data.images.length > 0) {
+          setImage('http://api.tdumz.com/' + data.images[0].path)
+        } else {
+          setImage('https://placehold.co/300x300') 
+        }
+        setLink(data.id)
+      })
+      .finally(() => setLoad(false))
   }, [currentUrl])
+  
 
   return (
     <>
