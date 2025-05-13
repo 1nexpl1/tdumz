@@ -3,26 +3,25 @@ import ItemCarousel from '../components/ItemCarousel/ItemCarousel'
 import Footer from '../components/Footer/Footer'
 import Items from '../components/Items/Items'
 
-const ItemPage = ({items, id, type}) => {
-  const [corItems, setCorItems] = useState()
-  const currentUrl = window.location.href;
+const ItemPage = ({ items, id, type }) => {
+  const [corItems, setCorItems] = useState([])
 
-  useEffect(()=>{
-    let corI = items.rows.filter((item)=> item.chapterId == id)
-    setCorItems(corI)
-  },[currentUrl])
-  
+  useEffect(() => {
+    if (items && Array.isArray(items.rows)) {
+      const filteredItems = items.rows.filter(item => item.chapterId == id)
+      setCorItems(filteredItems)
+    }
+  }, [items, id]) // реагируем на обновление данных и ID
+
   return (
     <div>
       <ItemCarousel />
       <div className='ItemTitle'>{type}</div>
-      {corItems ? (
-      <Items corItems={corItems}/>
-      
-      ):(
-        <></>
-      )
-      }
+      {corItems.length > 0 ? (
+        <Items corItems={corItems} />
+      ) : (
+        <div style={{ textAlign: 'center', padding: '2rem' }}>Загрузка товаров...</div>
+      )}
       <Footer />
     </div>
   )
