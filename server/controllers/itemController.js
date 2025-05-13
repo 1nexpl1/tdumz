@@ -1,6 +1,11 @@
 import { Item, Descrption, Image } from '../models/models.js';
 import { v4 } from 'uuid';
-import { resolve } from 'path';
+import path, { resolve } from 'path';
+
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 class itemController {
     async getAll(req, res) {
         const items = await Item.findAndCountAll()
