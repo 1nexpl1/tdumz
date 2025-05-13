@@ -4,6 +4,10 @@
     z-index: 300;
 }
 
+.wrapper img{
+    min-width: 100%;
+}
+
 .wrapperInfo{
     height: 400px;
     background-color: #fff;

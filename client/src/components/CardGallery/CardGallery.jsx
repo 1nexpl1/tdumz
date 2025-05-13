@@ -10,8 +10,8 @@ import ph3 from '../../images/card3.png'
 const CardGallery = ({ imag }) => {
 
     const images = imag.map(el => ({
-        original: 'http://localhost:8000/' + el.path,
-        thumbnail: 'http://localhost:8000/' + el.path,
+        original: 'https://api.tdumz.com/api' + el.path,
+        thumbnail: 'https://api.tdumz.com/api' + el.path,
         originalHeight: '550px',
         originalWidth: '550px',
         thumbnailHeight: '92px',

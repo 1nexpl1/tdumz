@@ -16,7 +16,7 @@ const Item = ({ item }) => {
       .then(data => {
         setName(data.title)
         if (data.images && data.images.length > 0) {
-          setImage('http://api.tdumz.com/' + data.images[0].path)
+          setImage('https://api.tdumz.com/' + data.images[0].path)
         } else {
           setImage('https://placehold.co/300x300') 
         }
