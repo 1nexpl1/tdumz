@@ -3,17 +3,29 @@ import SignInPage from '../../pages/SignInPage';
 import DashboardPage from '../../pages/DashboardPage';
 import Items from '../items/Items';
 import Client from '../client/client';
+import { useContext } from 'react';
+import { AuthContext } from '../Context/AuthContext';
 
-const AppRouter = ({ isAuth }) => {
+const AppRouter = () => {
+
+  const { isAuth } = useContext(AuthContext);
+
   return (
     <Routes>
-          <Route path="dashboard" element={<DashboardPage />} />
-          <Route path="item" element={<Items />} />
-          <Route path="client" element={<Client />} />
-          <Route path="*" element={<Navigate to="dashboard" />} />
-          <Route path="signin" element={<SignInPage />} />
-          <Route path="*" element={<Navigate to="signin" />} />
-      
+      {/* Публичный маршрут */}
+      <Route path="/signin" element={<SignInPage />} />
+
+      {/* Защищённые маршруты */}
+      {isAuth ? (
+        <>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/item" element={<Items />} />
+          <Route path="/client" element={<Client />} />
+          <Route path="*" element={<Navigate to="/dashboard" />} />
+        </>
+      ) : (
+        <Route path="*" element={<Navigate to="/signin" />} />
+      )}
     </Routes>
   );
 };

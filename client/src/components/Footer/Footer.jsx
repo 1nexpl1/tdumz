@@ -19,7 +19,6 @@ const Footer = () => {
                 <div className={s.rightWrapper}>
                     <div className={s.number}>+7 (922) 209-83-80</div>
                     <div className={s.rightSubTitle}>отдел продаж</div>
-                    <div className={s.mail}>tdumz@bk.ru</div>
                     <div className={s.mail}>sale@tdumz.com</div>
                 </div>
         </div>

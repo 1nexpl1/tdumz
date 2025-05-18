@@ -14,6 +14,8 @@ import * as React from 'react';
 import AppTheme from '../components/AppTheme/AppTheme';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../components/Context/AuthContext';
 
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -68,6 +70,8 @@ const SignInPage = (props) => {
     const [isSubmitting, setIsSubmitting] = React.useState(false);
     const navigate = useNavigate();
 
+
+    const { setIsAuth } = useContext(AuthContext);
   
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -77,6 +81,8 @@ const SignInPage = (props) => {
       const password = event.target.password.value;
     
       setIsSubmitting(true);
+      console.log(login, password);
+      
       try {
         const response = await axios.post('https://api.tdumz.com/api/user/login', {
           login,
@@ -86,10 +92,12 @@ const SignInPage = (props) => {
         const accessToken = response.data.accessToken;
         localStorage.setItem('token', accessToken);
     
-        props.setIsAuth(true);
+        setIsAuth(true);
     
         navigate('/item'); // или /dashboard, если нужно
       } catch (error) {
+        console.log(error);
+        
         alert('Неверный логин или пароль');
       } finally {
         setIsSubmitting(false);

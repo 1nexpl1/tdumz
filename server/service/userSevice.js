@@ -13,7 +13,7 @@ class userService {
     async registration(login, password) {
         const candidate = await User.findOne({ where: { login } });
         if (candidate) {
-            throw BadRequest(`Пользователь с таким логином уже существует`)
+            throw ApiError.BadRequest(`Пользователь с таким логином уже существует`)
         }
         const hashPassword = await hash(password, 3);
 
@@ -33,11 +33,11 @@ class userService {
         
         const user = await User.findOne({ where: { login } });
         if (!user) {
-            throw BadRequest('Пользователь с таким email не найден')
+            throw ApiError.BadRequest('Пользователь с таким email не найден')
         }
         const isPassEquals = await compare(password, user.password);
         if (!isPassEquals) {
-            throw BadRequest('Неверный пароль');
+            throw ApiError.BadRequest('Неверный пароль');
         }
         const userDto = new UserDto(user);
         const tokens = generateTokens({...userDto});

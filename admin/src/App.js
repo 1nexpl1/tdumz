@@ -3,6 +3,7 @@ import './App.css';
 import AppRouter from './components/AppRouter/AppRouter';
 import { useState, useEffect } from 'react';
 import { checkAuth } from './http/chackAuth';
+import { AuthContext } from './components/Context/AuthContext';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -25,9 +26,12 @@ function App() {
   if (loading) return <div>Загрузка...</div>;  // Пока идет загрузка
 
   return (
-    <BrowserRouter>
-      <AppRouter isAuth={isAuth} />  // Передаем isAuth в AppRouter
-    </BrowserRouter>
+
+    <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+      <BrowserRouter>
+        <AppRouter isAuth={isAuth} />  // Передаем isAuth в AppRouter
+      </BrowserRouter>
+    </AuthContext.Provider>
   );
 }
 
