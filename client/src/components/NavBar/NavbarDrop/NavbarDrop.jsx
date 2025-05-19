@@ -5,11 +5,9 @@ const NavbarDrop = ({ types }) => {
   return (
     <div className={s.linksWrapper}>
       {types.rows.map((el) =>
-        <>
-          <Link key={el.id} to={`/items/${el.id}/${el.name}`}>
-            {el.name}
-          </Link>
-        </>
+        <Link className={s.link} key={el.id} to={`/items/${el.id}/${el.name}`}>
+          {el.name}
+        </Link>
       )}
     </div>
   )
