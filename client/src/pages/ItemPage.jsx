@@ -18,7 +18,7 @@ const ItemPage = ({ items, id, type }) => {
       <ItemCarousel />
       <div className='ItemTitle'>{type}</div>
       {corItems.length > 0 ? (
-        <Items corItems={corItems} />
+        <Items key = {id} corItems={corItems} />
       ) : (
         <div style={{ textAlign: 'center', padding: '2rem' }}>Загрузка товаров...</div>
       )}
