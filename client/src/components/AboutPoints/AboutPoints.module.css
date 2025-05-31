@@ -1,52 +1,97 @@
-.title{
-    font-family: 'Montserrat';
-    font-size: 28px;
-    font-weight: bold;
-    width: 600px;
-    text-align: center;
-}
-
-.wrapper{
+.wrapper {
     margin-top: 104px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.wrapperBlocks{
-    width: 50%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    margin-bottom: 55px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .wrapperBlocks {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .blockWrapper {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: start;
-    justify-content: start;
-    margin-top: 70px;
-    gap: 2%;
-}
-
-.logo{
-    margin-bottom: 55px;
-}
-
-.number{
+    width: calc(50% - 10px); /* две колонки с отступом */
+    min-height: 120px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .number {
     font-size: 50px;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-}
-
-.text{
+    line-height: 1;
+    color: #000;
+  }
+  
+  .text {
     margin-top: 10px;
     margin-left: 10px;
     font-size: 17px;
-    font-family: 'Montserrat';
-    font-weight: bold; 
-}
-
-.blockWrapper{
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    width: 49%;
-    height: 149px;
-}
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  /* Планшет */
+  @media (max-width: 768px) {
+    .blockWrapper {
+      width: 100%;
+    }
+  
+    .title {
+      font-size: 24px;
+    }
+  
+    .number {
+      font-size: 40px;
+    }
+  
+    .text {
+      font-size: 16px;
+    }
+  }
+  
+  /* Мобильный */
+  @media (max-width: 480px) {
+    .title {
+      font-size: 20px;
+    }
+  
+    .number {
+      font-size: 32px;
+    }
+  
+    .text {
+      font-size: 15px;
+    }
+  }
+  

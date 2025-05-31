@@ -40,6 +40,30 @@
     
 }
 
-@media (max-width: 860px) {
-    
+@media (max-width: 720px) {
+    .logo{
+        top: 30px;
+    }
+    .text{
+        font-size: 16px;
+        width: 60%;
+        top: 180px;
+    }
+}
+
+@media (max-width: 580px) {
+    .logo{
+        display: none;
+    }
+    .text{
+        display: none;
+    }
+}
+
+@media (max-width: 470px) {
+    .logo{
+        top: 50%;
+        transform: translate(-50%,-50%);
+        display: block;
+    }
 }

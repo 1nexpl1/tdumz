@@ -108,16 +108,35 @@ legend {
 	margin-bottom: 150px;
 }
 
-.cardWrapper{
-	width: 60%;
-	display: flex;
-	flex-direction: row;
-	gap: 10%;
-	position: relative;
-	left: 50%;
-	transform: translate(-50%, 0);
-	margin-bottom: 155px;
+.cardWrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 155px;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    padding: 0 20px;
 }
+
+/* 📱 Мобильные устройства */
+@media (max-width: 768px) {
+    .cardWrapper {
+        flex-direction: column;
+        gap: 40px;
+        padding: 0 15px;
+        margin-bottom: 100px;
+    }
+}
+
+/* 📱 Очень узкие экраны */
+@media (max-width: 480px) {
+    .cardWrapper {
+        padding: 0 10px;
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+}
+
 
 .MainWrapper{
 	height: 2000px;

@@ -1,16 +1,18 @@
-.wrapper{
+.wrapper {
     width: 100%;
     height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 15px; /* чтобы не прижималось к краям */
 }
 
-.insideWrapper{
+.insideWrapper {
     width: 677px;
+    max-width: 100%;
 }
 
-.title{
+.title {
     font-weight: bold;
     font-family: 'Montserrat';
     font-size: 40px;
@@ -18,15 +20,13 @@
     margin-bottom: 32px;
 }
 
-
-
-.subTitle{
+.subTitle {
     font-size: 15px;
     font-family: 'Montserrat';
     text-align: center;
 }
 
-.number{
+.number {
     font-weight: bold;
     font-family: 'Montserrat';
     text-decoration: underline;
@@ -36,7 +36,7 @@
     margin-bottom: 16px;
 }
 
-.but{
+.but {
     border-radius: 40px;
     border: 3px solid #1235a6;
     width: 425px;
@@ -46,7 +46,7 @@
     color: #1235a6;
 }
 
-.buttonWrapper{
+.buttonWrapper {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -54,68 +54,136 @@
     margin-bottom: 80px;
 }
 
-.but:hover{
+.but:hover {
     background-color: #1235a6;
     color: #fff;
 }
 
-.mail, .mail1{
+.mail, .mail1 {
     font-family: 'Montserrat';
     font-size: 15px;
-
 }
 
-.mail span{
+.mail span,
+.mail1 span {
     font-weight: bold;
 }
 
-
-.mail1 span{
-    font-weight: bold;
-}
 .contactWrapper1,
-.contactWrapper2{
+.contactWrapper2 {
     width: 49%;
 }
 
-.contactWrapper1{
+.contactWrapper1 {
     text-align-last: left;
 }
 
-.contactWrapper2{
+.contactWrapper2 {
     text-align-last: right;
 }
 
-.contactsWrapper{
+.contactsWrapper {
     display: flex;
     flex-direction: row;
+    gap: 10px;
 }
 
-.line{
+.line {
     border-top: 1px solid #c4c4c4;
     margin-bottom: 25px;
 }
 
-.adress{
+.adress {
     text-align: center;
 }
 
-.inn{
+.inn {
     text-align: center;
 }
-.mail1{
+
+.mail1 {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 32px;
 }
-.adressWrapper{
+
+.adressWrapper {
     font-family: 'Montserrat';
     margin-bottom: 46px;
     margin-top: 54px;
 }
 
-
-.adress span{
+.adress span {
     font-weight: bold;
     font-size: 15px;
+}
+
+/* Медиазапросы */
+
+/* Планшеты и меньше */
+@media (max-width: 768px) {
+    .insideWrapper {
+        width: 90%;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+
+    .number {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .mail, .mail1 {
+        font-size: 14px;
+    }
+
+    .adressWrapper {
+        margin-top: 40px;
+        margin-bottom: 36px;
+    }
+
+    .contactsWrapper {
+        gap: 8px;
+    }
+}
+
+/* Мобильные устройства (до 480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .subTitle {
+        font-size: 14px;
+    }
+
+    .number {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .mail, .mail1 {
+        font-size: 13px;
+    }
+
+    .adressWrapper {
+        margin-top: 30px;
+        margin-bottom: 24px;
+    }
+
+    .contactsWrapper {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .contactWrapper1,
+    .contactWrapper2 {
+        width: 100%;
+        text-align-last: center;
+        text-align: center;
+    }
 }

@@ -31,7 +31,7 @@ const Item = ({ item }) => {
       {load ? (
         <></>
       ) : (
-        <Link to={`/item/${item.id}`} className={s.wrapper}>
+        <Link to={`/item/${item.id}`}ц className={s.wrapper}>
           <img className={s.image} src={image} alt="" />
           <div className={s.title}>{name}</div>
         </Link>

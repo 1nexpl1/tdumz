@@ -48,6 +48,14 @@ const AboutPoints = () => {
                         БУРОВОЕ ОБОРУДОВАНИЕ
                     </div>
                 </div>
+                <div className={s.blockWrapper}>
+                    <div className={s.number}>
+                        06
+                    </div>
+                    <div className={s.text}>
+                        ЕМКОСТНОЕ ОБОРУДОВАНИЕ
+                    </div>
+                </div>
             </div>
         </div>
     )

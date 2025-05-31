@@ -2,3 +2,9 @@
     position: relative;
     top: -1100px;
 }
+
+@media (max-width:860px) {
+    .wrapper{
+        display: none;
+    }
+}

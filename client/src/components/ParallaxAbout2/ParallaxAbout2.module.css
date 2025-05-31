@@ -1,47 +1,50 @@
-
-
-.wrapperText{
+.wrapperText {
     color: #fff;
     text-align: center;
     font-size: 15px;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    width: 640px;
-}
-
-.title{
+    width: 90%;
+    max-width: 700px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.45); /* помогает читаемости на светлом фоне */
+    border-radius: 10px;
+  }
+  
+  .title {
     font-weight: bold;
-    font-size: 40px;
-    margin-bottom: 35px;
-}
-
-
-.button{
-    width: 190px;
-    height: 45px;
-    background-color: #fff;
-    font-size: 14px;
-    font-family: 'Montserrat';
-    color: #000;
-    position: absolute;
-    top: 0;
-    left: calc(50%);
-    border-radius: 5px;
-    transform: rotate(-90deg);
-    border: none;
-    outline: 0px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.button:hover{
-    background-color: blue;
-    color: #fff;
-}
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+  
+  .text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* Планшет */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 28px;
+    }
+    .text {
+      font-size: 15px;
+    }
+  }
+  
+  /* Мобильный */
+  @media (max-width: 480px) {
+    .title {
+      font-size: 22px;
+    }
+    .text {
+      font-size: 14px;
+    }
+  }
+  

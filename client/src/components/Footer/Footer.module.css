@@ -1,33 +1,45 @@
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: row;
     align-items: start;
     justify-content: center;
     gap: 2%;
+    padding: 30px 0;
 }
 
+/* Блоки футера */
 .leftWrapper,
 .midWrapper,
-.rightWrapper{
+.rightWrapper {
     width: 20%;
     display: flex;
     flex-direction: column;
 }
 
-.midWrapper{
+
+.midWrapper img {
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Центровка и выравнивание */
+.midWrapper {
     justify-content: start;
     align-items: center;
 }
 
-.leftWrapper{
+.leftWrapper {
     align-items: start;
 }
 
-.rightWrapper{
+.rightWrapper {
     align-items: end;
 }
 
-.number{
+/* Текст */
+.number {
     font-size: 17px;
     font-family: 'Montserrat';
     font-weight: bold;
@@ -35,30 +47,43 @@
     margin-bottom: 10px;
 }
 
-.subTitle{
+.subTitle,
+.leftSubTitle,
+.rightSubTitle {
     font-size: 12px;
     font-family: 'Montserrat';
-    margin-top: 18px;
-    margin-bottom: 20px;
-}
-
-.rightSubTitle{
-    font-size: 12px;
-    font-family: 'Montserrat';
-    margin-top: 18px;
+    text-align: center;
     margin-top: -5px;
     margin-bottom: 15px;
 }
 
-.leftSubTitle{
-    font-size: 12px;
-    font-family: 'Montserrat';
-    margin-top: 18px;
-    margin-top: -5px;
-    margin-bottom: 15px;
-}
-
-.mail{
+.mail {
     font-family: 'Montserrat';
     font-size: 14px;
+}
+
+/* 📱 Адаптив под планшеты и телефоны */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    .midWrapper {
+        margin-top: 20px; /* ⬅️ Добавили отступ */
+    }
+
+    .leftWrapper,
+    .midWrapper,
+    .rightWrapper {
+        width: 100%;
+        align-items: center;
+    }
+
+    .leftSubTitle,
+    .rightSubTitle {
+        margin-top: 5px;
+    }
 }

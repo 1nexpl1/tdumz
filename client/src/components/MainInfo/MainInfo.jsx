@@ -7,7 +7,7 @@ import s from './MainInfo.module.css'
 const MainInfo = () => {
   return (
     <div className={s.wrapper}>
-        <img src={up} alt="" />
+        <img className={s.arrowUp} src={up} alt="" />
         <div className={s.wrapperInfo}>
             <div className={s.text}>ТД «УМЗ» - компания, осуществляющая  поставки оборудования для добывающей промышленности.</div>
         

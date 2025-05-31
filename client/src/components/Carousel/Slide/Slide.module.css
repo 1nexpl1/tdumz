@@ -1,41 +1,40 @@
-.number{
+.number {
     font-size: 200px;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     color: #000;
     font-weight: bold;
     line-height: 0.75;
-}
-
-.leftToRight{
+    white-space: nowrap;
+  }
+  
+  .leftToRight,
+  .rightToLeft {
     display: flex;
+    gap: 45px;
+    padding: 30px 0;
+    border-top: 2px solid #c4c4c4;
+    border-bottom: 2px solid #c4c4c4;
+    align-items: flex-start;
+  }
+  
+  .leftToRight {
     flex-direction: row;
-    gap: 45px;
-    padding-bottom: 30px;
-    padding-top: 30px;
-    border-bottom: 2px solid #c4c4c4;
-    border-top: 2px solid #c4c4c4;
-}
-
-.rightToLeft{
-    display: flex;
+  }
+  
+  .rightToLeft {
     flex-direction: row-reverse;
-    gap: 45px;
-    padding: 30px;
-    padding-top: 30px;
-    border-bottom: 2px solid #c4c4c4;
-    border-top: 2px solid #c4c4c4;
-}
-
-.title{
+  }
+  
+  .title {
     font-size: 40px;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     color: #000;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     position: relative;
-}
-
-.title::after{
+  }
+  
+  .title::after {
     position: absolute;
     bottom: -14px;
     left: 0;
@@ -43,19 +42,66 @@
     width: 73px;
     height: 5px;
     background-color: rgb(18, 53, 166);
-}
-
-.textLeft,
-.textRight{
+  }
+  
+  .textLeft,
+  .textRight {
     color: #242323;
     font-size: 14px;
-    font-family: 'Montserrat';
-}
-
-.textLeft{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .textLeft {
     text-align: left;
-}
-
-.textRight{
+  }
+  
+  .textRight {
     text-align: right;
-}
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .number {
+      font-size: 100px;
+    }
+  
+    .leftToRight,
+    .rightToLeft {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+  
+    .textLeft,
+    .textRight {
+      text-align: center;
+      font-size: 13px;
+    }
+  
+    .title {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+  
+    .title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .number {
+      font-size: 64px;
+    }
+  
+    .title {
+      font-size: 22px;
+    }
+  
+    .textLeft,
+    .textRight {
+      font-size: 12px;
+    }
+  }
+  

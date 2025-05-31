@@ -7,16 +7,17 @@ import image1 from '../../images/parallaxAbout.png'
 
 const ParallaxAbout = (props) => {
     return (
-        <div style={{marginTop: '50px'}}>
+        <div style={{ marginTop: '50px' }}>
             <Parallax bgImage={image1} strength={600}>
-                <div style={{ height: 560 }}>
-                    <div className={s.wrapper}>                  
-                    </div>
-                    <span className={s.text}>
+                <div style={{ height: 560, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className={s.wrapper}>
+                        <span className={s.text}>
                             ТД "УМЗ" производит запасные части и оборудование, исходя из требований ТУ и чертежно-конструкторской документации, включая приемо-сдаточные испытания
-                    </span> 
+                        </span>
+                    </div>
                 </div>
             </Parallax>
+
         </div>
     )
 }

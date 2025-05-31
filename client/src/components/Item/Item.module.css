@@ -20,3 +20,10 @@
     height: 330px;
     margin-bottom: 40px;
 }
+
+@media (max-width: 768px) {
+    .wrapper{
+        width: 95%;
+    }
+}
+

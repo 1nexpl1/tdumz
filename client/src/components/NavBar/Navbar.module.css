@@ -131,20 +131,27 @@
     width: 30px;
     border: none;
     z-index: 6000000000;
-}
+    margin-bottom: 2px;
 
-.mobileMenu span {
-    background-color: #000;
+  }
+  
+  .mobileMenu span {
+    display: block;
+    background-color: #fff;
     border-radius: 2px;
     height: 3px;
+    min-height: 3px;
     width: 25px;
-    margin: 4px 0;
-}
+    margin: 3px 0;
+    overflow: visible;
+  }
+  
+  
 
 .line {
     width: 100%;
     height: 2px;
-    background-color: #000; /* Белый цвет для линий меню */
+    background-color: #fff;
 }
 
 .mobileLogo img {
@@ -170,6 +177,7 @@
     font-size: 18px;
     color: black; /* Цвет ссылок */
     text-decoration: none;
+    font-family: 'Montserrat';
 }
 
 .mobileLink:last-child {
@@ -206,3 +214,20 @@
     font-size: 16px;
     margin: 5px 0;
 }
+
+@media (max-width: 890px) {
+    .wrapper {
+      display: none;
+    }
+  
+    .mobileWrapper {
+      display: flex;
+    }
+  }
+  
+  @media (min-width: 891px) {
+    .mobileWrapper {
+      display: none;
+    }
+  }
+  
