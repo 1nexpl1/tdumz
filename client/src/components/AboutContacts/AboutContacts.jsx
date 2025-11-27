@@ -19,15 +19,6 @@ const AboutContacts = () => {
                     <span>Юридический и почтовый адрес:</span> 620014, Российская Федерация, Свердловская область, г. Екатеринбург, ул. Антона Валека, 15, офис 503.
                     </div>
                 </div>
-                <div className={s.number}>
-                +7 (343) 383-28-16
-                </div>
-                <div className={s.subTitle}>
-                общий
-                </div>
-                <div className={s.mail1}>
-                E-mail: <span>info@tdumz.com</span>
-                </div>
                 <div className={s.line}/>
                 <div className={s.contactsWrapper}>
                     <div className={s.contactWrapper1}>
@@ -38,6 +29,7 @@ const AboutContacts = () => {
                     <div className={s.contactWrapper2}>
                         <div className={s.number}>+7 (922) 209-83-80</div>
                         <div className={s.subTitle}>специалист отдела продаж</div>
+                        <div className={s.mail}>E-mail: <span>info@tdumz.com</span></div>
                     </div>
                 </div>
             </div>

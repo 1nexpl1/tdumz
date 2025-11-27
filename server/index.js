@@ -12,7 +12,8 @@ import cookieParser from 'cookie-parser';
 const allowedOrigins = [
     'https://tdumz.com',
     'https://admin.tdumz.com',
-    'https://www.tdumz.com'
+    'https://www.tdumz.com',
+    'http://localhost:3000',
   ];
   
   const corsOptions = {
